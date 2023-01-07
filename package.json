@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon ./src/app.ts",
-    "start": "node ./src/app.ts"
+    "start": "ts-node-esm src/app.ts"
   },
   "keywords": [],
   "author": "",

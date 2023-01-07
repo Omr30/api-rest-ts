@@ -2,6 +2,7 @@ import { Auth } from "../interfaces/auth.interface"
 import { User } from "../interfaces/user.interface"
 import UserModel from "../models/user"
 import { encrypt, verified } from "../utils/bcrypt.handle"
+import { generateToken } from "../utils/jwt.handle"
 
 const registrarNewUser = async({email, password, name}: User) => {
     const checkIs = await UserModel.findOne({email})
@@ -22,7 +23,12 @@ const loginUser = async({email, password}:Auth) => {
 
     if(!comparePass) return "PASSWORD_INCORRECT"
 
-    return comparePass
+    const token = generateToken(checkIs.email)
+    const data = {
+        token,
+        user: checkIs
+    }
+    return data
 }
 
 export {

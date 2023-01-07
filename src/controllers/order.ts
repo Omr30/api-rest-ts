@@ -1,10 +1,7 @@
-import { Request, Response } from "express"
-import { JwtPayload } from "jsonwebtoken"
+import { Response } from "express"
+import { RequestExt } from "../interfaces/req-ext"
 import { handleHttp } from "../utils/error.handle"
 
-interface RequestExt extends Request{
-    user?: string | JwtPayload
-}
 
 const getItems = async (req: RequestExt, res: Response) => {
     try {

@@ -8,6 +8,4 @@ const handleHttp = (res: Response, error: string, errorRaw?: any) => {
     })
 }
 
-export {
-    handleHttp
-}
+export  {handleHttp}
